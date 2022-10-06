@@ -8,55 +8,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Test Site</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
 </head>
 
 <body>
-    <section class="hero is-danger is-fullheight">
+<section class="hero is-light is-fullheight">
 
-        <div class="hero-head">
-            <nav class="navbar">
-                <div class="container">
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
 
-                    <div id="navbarMenuHeroA" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a href="{{ url_for('main.index') }}" class="navbar-item">
-                                Home
-                            </a>
-                            {% if current_user.is_authenticated %}
-                            <a href="{{ url_for('main.profile') }}" class="navbar-item">
-                                Profile
-                            </a>
-                            {% endif %}
-                            {% if not current_user.is_authenticated %}
-                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
-                                Login
-                            </a>
-                            <a href="{{ url_for('auth.signup') }}" class="navbar-item">
-                                Sign Up
-                            </a>
-                            <a href="{{ url_for('main.about') }}" class="navbar-item">
-                                About us
-                            </a>
-                            {% endif %}
-                            {% if current_user.is_authenticated %}
-                            <a href="{{ url_for('auth.logout') }}" class="navbar-item">
-                                Logout
-                            </a>
-                            {% endif %}
-                        </div>
+                <div id="navbarMenuHeroA" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a href="{{ url_for('main.index') }}" class="navbar-item">
+                            Home
+                        </a>
+                        {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('main.profile') }}" class="navbar-item">
+                            Profile
+                        </a>
+                        {% endif %}
+                        {% if not current_user.is_authenticated %}
+                        <a href="{{ url_for('auth.login') }}" class="navbar-item">
+                            Login
+                        </a>
+                        <a href="{{ url_for('auth.signup') }}" class="navbar-item">
+                            Sign Up
+                        </a>
+                        <a href="{{ url_for('main.about') }}" class="navbar-item">
+                            About us
+                        </a>
+                        {% endif %}
+                        {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                            Logout
+                        </a>
+                        {% endif %}
                     </div>
                 </div>
-            </nav>
+            </div>
+        </nav>
+    </div>
+
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            {% block content %}
+            {% endblock %}
         </div>
 
-        <div class="hero-body">
-            <div class="container has-text-centered">
-               {% block content %}
-               {% endblock %}
-            </div>
+    </div>
+    <!--        <div class="bottom-text is-info is-light">-->
+    <!--            <div class ="contacts-telegramm is-info is-light">Наш телеграмм бот - @wikibot </div>-->
+    <!--           <div class = "copyright is-info is-light"></div>© 2022 Группа компаний ttt-->
+    <!--        </div>-->
+    <div class="block is-primary">
+        Our telegramBot <strong>@wikibot</strong>.
+        <div class = "message is-grey-darker">
+           <em> @ 2022 Copyright Our CompanyGroup</em>
         </div>
-    </section>
+    </div>
+
+</section>
 </body>
 
 </html>
